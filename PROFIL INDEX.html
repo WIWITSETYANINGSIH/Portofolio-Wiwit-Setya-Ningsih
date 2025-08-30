@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil – Wiwit Setya Ningsih</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0a1a2f; /* biru navy */
+      --navy-2:#0f2744; /* navy lebih terang */
+      --gold:#d4af37; /* emas */
+      --gold-2:#f5e6a1; /* aksen emas muda */
+      --ink:#e9eef6; /* teks terang */
+      --muted:#9fb0c7; /* teks sekunder */
+      --card:#10233caa; /* kartu semi transparan */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:"Poppins",system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--navy);color:var(--ink)}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+
+    /* --- Background circuit pattern --- */
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-2;
+      background:
+        radial-gradient(1200px 600px at 120% -10%,rgba(212,175,55,.15),transparent 60%),
+        radial-gradient(1000px 600px at -20% 110%,rgba(212,175,55,.12),transparent 60%),
+        linear-gradient(180deg, #0b1d34 0%, #081628 100%);
+    }
+    body::after{
+      /* pola sirkuit tipis */
+      content:"";position:fixed;inset:0;z-index:-1;opacity:.18;pointer-events:none;
+      background-image: linear-gradient(90deg, transparent 95%, rgba(255,255,255,.04) 95%),
+                        linear-gradient(0deg, transparent 95%, rgba(255,255,255,.04) 95%);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(70% 70% at 50% 20%, black 60%, transparent 100%);
+    }
+
+    /* --- Layout --- */
+    .container{max-width:1100px;margin:auto;padding:24px}
+    header{
+      position:relative;border-bottom:1px solid rgba(255,255,255,.07);
+      background:linear-gradient(135deg, rgba(20,42,76,.7), rgba(10,26,47,.6));
+      box-shadow:0 10px 40px rgba(0,0,0,.25) inset;
+      overflow:hidden
+    }
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;padding:28px 0}
+    .avatar{
+      width:110px;height:110px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),#a88213);
+      padding:3px
+    }
+    .avatar > div{
+      width:100%;height:100%;border-radius:50%;
+      background:linear-gradient(180deg,#0d223c,#0a1a2f);
+      display:grid;place-items:center;overflow:hidden
+    }
+    .avatar svg{width:62%;height:62%;fill:var(--gold-2);opacity:.9}
+    .title h1{margin:0;font-weight:700;letter-spacing:.3px}
+    .title small{color:var(--muted)}
+    .tagline{margin-top:6px;color:var(--gold-2);font-weight:600}
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .chip{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(212,175,55,.35);color:var(--ink);
+      background:rgba(16,35,60,.6);padding:8px 12px;border-radius:999px;font-size:.9rem}
+    .chip svg{width:16px;height:16px;fill:var(--gold)}
+
+    nav{margin-top:16px;display:flex;gap:14px;flex-wrap:wrap}
+    nav a{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.04);color:var(--ink);border:1px solid rgba(255,255,255,.06)}
+    nav a:hover{background:rgba(212,175,55,.08);border-color:rgba(212,175,55,.35)}
+
+    /* --- Sections --- */
+    section{margin-top:26px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px 18px 14px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .heading{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+    .heading .icon{width:22px;height:22px;display:inline-grid;place-items:center;border-radius:8px;background:rgba(212,175,55,.16);border:1px solid rgba(212,175,55,.4)}
+    .heading .icon svg{width:15px;height:15px;fill:var(--gold)}
+    .heading span{font-weight:600;letter-spacing:.3px}
+
+    .list{margin:0;padding:0;list-style:none}
+    .list li{padding:10px 12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;margin-bottom:10px;background:rgba(11,29,52,.45)}
+    .list li b{color:var(--gold)}
+
+    .two-col{columns:2;column-gap:16px}
+    @media (max-width:800px){.two-col{columns:1}}
+
+    .badge{display:inline-block;background:rgba(212,175,55,.16);border:1px solid rgba(212,175,55,.45);padding:6px 10px;border-radius:999px;margin:6px 6px 0 0;font-size:.9rem}
+
+    footer{margin:36px 0 20px;color:var(--muted);text-align:center}
+
+    /* --- Tiny accents --- */
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.6),transparent);margin:16px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div class="avatar" aria-hidden="true">
+          <!-- Avatar icon (computer outline) -->
+              <div class="avatar">
+        <div>
+          <img src="C:\Users\wiwit\OneDrive\Pictures\Documents\KAMPUS STIMIK INFORMATIKA\IMAGE\BAG BIRU.png" 
+              alt="Foto Profil Wiwit Setya Ningsih" 
+              style="width:98%; height:160%; object-fit:cover;">
+        </div>
+      </div>
+      </div>
+      <div class="title">
+        <h1>Wiwit Setya Ningsih</h1>
+        <small>Mahasiswa STIMIK Tunas Bangsa Banjarnegara</small>
+        <div class="tagline">Butuh bukti, bukan janji.</div>
+        <div class="chips" aria-label="Kontak & Sosial">
+          <span class="chip" title="Email">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z" opacity=".35"/><path d="M20 6H4l8 6z"/></svg>
+            <span>wiwitsetyaningsih56@gmail.com</span>
+          </span>
+          <span class="chip" title="Telepon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.1-.2 11 11 0 0 0 3.5.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 7a1 1 0 0 1 1-1h3.4a1 1 0 0 1 1 1 11 11 0 0 0 .6 3.5 1 1 0 0 1-.2 1.1z"/></svg>
+            <span>0851-9859-5709</span>
+          </span>
+          <a class="chip" href="https://www.instagram.com/sweetlyone1" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg>
+            <span>@sweetlyone1</span>
+          </a>
+        </div>
+        <nav aria-label="Navigasi halaman">
+          <a href="#tentang">Tentang</a>
+          <a href="#pendidikan">Pendidikan</a>
+          <a href="#pengalaman">Pengalaman</a>
+          <a href="#keahlian">Keahlian</a>
+          <a href="#hobi">Hobi & Minat</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Tentang -->
+    <section id="tentang" class="card" aria-labelledby="h-tentang">
+      <h2 class="heading" id="h-tentang">
+        <span class="icon" aria-hidden="true">
+          <!-- code icon -->
+          <svg viewBox="0 0 24 24"><path d="M8.7 7.3 4 12l4.7 4.7 1.4-1.4L6.8 12l3.3-3.3-1.4-1.4Zm6.6 0-1.4 1.4L17.2 12l-3.3 3.3 1.4 1.4L20 12l-4.7-4.7Z"/></svg>
+        </span>
+        <span>Tentang Saya</span>
+      </h2>
+      <p>Halo, saya <b>Wiwit Setya Ningsih</b>, mahasiswa <b>STIMIK Tunas Bangsa Banjarnegara</b>. Saya percaya bahwa <b>bukti lebih penting daripada janji</b>. Saya berupaya konsisten menunjukkan hasil melalui karya di bidang komputer dan teknologi.</p>
+      <div class="divider"></div>
+      <div class="grid">
+        <ul class="list">
+          <li><b>Tempat/Tgl Lahir:</b> Banjarnegara, 26 Mei 2007</li>
+          <li><b>Alamat:</b> Binangun RT 003 RW 005, Karangkobar, Banjarnegara</li>
+        </ul>
+        <ul class="list">
+          <li><b>Nama Panggilan:</b> Wiwit</li>
+          <li><b>Motto:</b> "Butuh bukti, bukan janji"</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section id="pendidikan" class="card" aria-labelledby="h-pendidikan">
+      <h2 class="heading" id="h-pendidikan">
+        <span class="icon" aria-hidden>
+          <!-- graduation cap -->
+          <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V17h2V8L12 3Zm-5 7v4.5c0 2.2 3.13 3.5 5 3.5s5-1.3 5-3.5V10l-5 2.27L7 10Z"/></svg>
+        </span>
+        <span>Pendidikan</span>
+      </h2>
+      <ul class="list">
+        <li><b>SD:</b> SDN 01 Binangun (2018)</li>
+        <li><b>SMP:</b> SMPS Ma'arif NU 01 Karangkobar (2021)</li>
+        <li><b>SMK:</b> SMKS Ma'arif NU 01 Karangkobar – Akuntansi & Keuangan Lembaga (2025)</li>
+        <li><b>Perguruan Tinggi:</b> STIMIK Tunas Bangsa Banjarnegara</li>
+      </ul>
+    </section>
+
+    <!-- Pengalaman -->
+    <section id="pengalaman" class="card" aria-labelledby="h-pengalaman">
+      <h2 class="heading" id="h-pengalaman">
+        <span class="icon" aria-hidden>
+          <!-- briefcase -->
+          <svg viewBox="0 0 24 24"><path d="M9 2h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v5h-5v-2H7v2H2V8a2 2 0 0 1 2-2h3V4a2 2 0 0 1 2-2Zm6 4V4H9v2h6Zm-8 7h10v2h5v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3h5v-2Z"/></svg>
+        </span>
+        <span>Pengalaman & Organisasi</span>
+      </h2>
+      <div class="grid">
+        <ul class="list">
+          <li><b>PKL:</b> Kantor Notaris PPAT Edy Sutrisno, S.H., M.Kn</li>
+          <li><b>Ketua PMR:</b> SMKS Ma'arif NU 01 Karangkobar</li>
+          <li><b>Ketua Kelas:</b> X–XII Akuntansi & Keuangan Lembaga</li>
+        </ul>
+        <ul class="list">
+          <li><b>Sekretaris 1:</b> Komisariat IPPNU SMKS Ma'arif NU 01 Karangkobar</li>
+          <li><b>Bendahara 1:</b> PAC IPPNU Kecamatan Karangkobar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Keahlian -->
+    <section id="keahlian" class="card" aria-labelledby="h-keahlian">
+      <h2 class="heading" id="h-keahlian">
+        <span class="icon" aria-hidden>
+          <!-- cpu -->
+          <svg viewBox="0 0 24 24"><path d="M9 3V1h2v2h2V1h2v2h2a2 2 0 0 1 2 2v2h2v2h-2v2h2v2h-2v2a2 2 0 0 1-2 2h-2v2h-2v-2h-2v2H9v-2H7a2 2 0 0 1-2-2v-2H3v-2h2v-2H3V7h2V5a2 2 0 0 1 2-2h2Zm-2 4v10h10V7H7Zm2 2h6v6H9V9Z"/></svg>
+        </span>
+        <span>Keahlian</span>
+      </h2>
+      <div class="grid">
+        <div>
+          <p><b>Hard Skill</b></p>
+          <span class="badge">Matematika & Analisis Data</span>
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">Python</span>
+          <span class="badge">Microsoft Office</span>
+          <span class="badge">Desain Grafis / Video</span>
+        </div>
+        <div>
+          <p><b>Soft Skill</b></p>
+          <span class="badge">Komunikasi</span>
+          <span class="badge">Kerja Tim</span>
+          <span class="badge">Manajemen Waktu</span>
+          <span class="badge">Problem Solving</span>
+          <span class="badge">Leadership</span>
+          <span class="badge">Adaptif</span>
+          <span class="badge">Emotional Intelligence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hobi & Minat -->
+    <section id="hobi" class="card" aria-labelledby="h-hobi">
+      <h2 class="heading" id="h-hobi">
+        <span class="icon" aria-hidden>
+          <!-- database/network -->
+          <svg viewBox="0 0 24 24"><path d="M12 2c-4.4 0-8 1.6-8 3.5S7.6 9 12 9s8-1.6 8-3.5S16.4 2 12 2Zm-8 6v3.5C4 13.4 7.6 15 12 15s8-1.6 8-3.5V8c0 1.9-3.6 3.5-8 3.5S4 9.9 4 8Zm0 6v3.5C4 21.4 7.6 23 12 23s8-1.6 8-3.5V14c0 1.9-3.6 3.5-8 3.5S4 15.9 4 14Z"/></svg>
+        </span>
+        <span>Hobi & Minat</span>
+      </h2>
+      <div class="grid">
+        <div>
+          <ul class="list">
+            <li><b>Hobi:</b> Membaca novel; Membuat konten/desain sederhana; Memasak</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list">
+            <li><b>Minat:</b> Ilmu Komputer & Teknologi; Matematika; Ekonomi</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deskripsi/Misi -->
+    <section class="card" aria-labelledby="h-deskripsi">
+      <h2 class="heading" id="h-deskripsi">
+        <span class="icon" aria-hidden>
+          <!-- terminal icon -->
+          <svg viewBox="0 0 24 24"><path d="M3 4h18v16H3V4Zm3.5 4.5L9.9 12 6.5 15.5l1.4 1.4L12.7 12 7.9 7.1 6.5 8.5ZM11 17h6v-2h-6v2Z"/></svg>
+        </span>
+        <span>Deskripsi</span>
+      </h2>
+      <p>Berbicara melalui karya, bukan janji. Menempa diri dalam dunia digital—setiap bukti adalah pencapaian.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Wiwit Setya Ningsih • Tema <span style="color:var(--gold)">Navy–Gold</span> • Informatika
+    </div>
+  </footer>
+
+  <script>
+    // tahun otomatis
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
